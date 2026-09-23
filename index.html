@@ -72,7 +72,7 @@ h1.htitle span{color:var(--accent)}
 .tray-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--faint);line-height:1;margin-bottom:6px;transition:color .3s}
 .tray-card:hover .tray-num{color:var(--accent)}
 .tray-name{font-size:20px;font-weight:700;color:var(--accent);margin-bottom:4px}
-.tray-desc{font-size:15.5px;color:var(--muted);line-height:1.55}
+.tray-desc{font-size:15.5px;color:var(--white);line-height:1.55}
 
 /* ── STATS ───────────────────────────────── */
 #stats{background:var(--accent);display:grid;grid-template-columns:repeat(4,1fr)}
@@ -150,14 +150,7 @@ h1.htitle span{color:var(--accent)}
 
 /* ── FESTIVALES ───────────────────────────── */
 #festivales{background:var(--dark)}
-#festivales-ticker .t-slot img{max-width:140px;max-height:60px;object-fit:contain;display:block}
-.festivales-ticker{padding:52px 0;background:var(--dark);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.festivales-inner{display:flex;gap:32px;overflow:hidden;position:relative;animation:tick 30s linear infinite;white-space:nowrap}
-.festival-item{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:180px;flex-shrink:0}
-.festival-item img{width:100%;height:auto;max-width:140px;object-fit:contain}
-.festival-label{text-align:center;font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:.1em;line-height:1.6}
-.festival-label span{color:var(--accent);font-size:10px;display:block;margin-top:4px}
-@keyframes scroll-festivales{0%{transform:translateX(0)};100%{transform:translateX(-50%)}}
+#festivales-ticker .t-slot img{max-width:140px;max-height:60px;width:auto;height:auto;object-fit:contain;object-position:center;display:block}
 .test-quote{font-size:16px;color:var(--white);line-height:1.7;margin-bottom:20px;font-style:italic}
 .test-quote::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--accent);line-height:1;display:block;margin-bottom:8px}
 .test-author{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
@@ -321,6 +314,31 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   .footer-center{padding:24px 16px;gap:12px}
   .footer-logo{height:45px}
   .footer-bottom{padding:16px;font-size:11px}
+
+  #festivales-ticker,
+#festivales-ticker .t-slot,
+#festivales-ticker .t-slot img{
+  overflow:visible !important;
+}
+
+#festivales-ticker .t-slot{
+  min-width:140px !important;
+  width:140px !important;
+  height:80px !important;
+  min-height:80px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+#festivales-ticker .t-slot img{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:140px !important;
+  max-height:70px !important;
+  object-fit:contain !important;
+}
 </style>
 </head>
 <body>
@@ -383,7 +401,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
         <div class="tray-name">Videojuegos</div>
         <div class="tray-desc">Game design, narrativa, mecánicas, game art, experiencias interactivas y desarrollo en motores de tiempo real.</div>
       </div>
-      <p style="font-family:'DM Mono',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px">Eliges tu línea a partir del 6.° semestre</p>
+      <p style="font-family:'DM Mono',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--white);margin-top:8px">Eliges tu línea a partir del 6.° semestre</p>
     </div>
   </div>
 </section>
@@ -415,47 +433,35 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
 <!-- FESTIVALES Y LAURELES -->
 <section id="festivales">
   <div class="sec-eye">Reconocimiento global</div>
-  <div class="festivales-ticker">
-    <div class="festivales-inner">
-      <!-- FESTIVAL 1: reemplazar ruta -->
-      <div class="festival-item">
-        <img src="./img/festivales/00.png" alt="Festival 1" loading="lazy">
-        <div class="festival-label">Shorts México<br><span>Official Selection</span></div>
-      </div>
-      <!-- FESTIVAL 2: reemplazar ruta -->
-      <div class="festival-item">
-        <img src="./img/festivales/09.png" alt="Festival 2" loading="lazy">
-        <div class="festival-label">Pixelatl<br><span>Official Selection</span></div>
-      </div>
-      <!-- FESTIVAL 3: reemplazar ruta -->
-      <div class="festival-item">
-        <img src="./img/festivales/08.png" alt="Festival 3" loading="lazy">
-        <div class="festival-label">New York Short Animation Festival<br><span>Official Selection</span></div>
-      </div>
-      <!-- FESTIVAL 4: reemplazar ruta -->
-      <div class="festival-item">
-        <img src="./img/festivales/02.png" alt="Festival 4" loading="lazy">
-        <div class="festival-label">Filmmakers session<br><span>Official Selection</span></div>
-      </div>
-      <!-- FESTIVAL 5: reemplazar ruta -->
-      <div class="festival-item">
-        <img src="./img/festivales/03.png" alt="Festival 5" loading="lazy">
-        <div class="festival-label">Urbanite<br><span>Official Selection</span></div>
-      </div>
-      <!-- FESTIVAL 6: reemplazar ruta -->
-      <div class="festival-item">
-        <img src="./img/festivales/04.png" alt="Festival 6" loading="lazy">
-        <div class="festival-label">IHSS<br><span>Official Selection</span></div>
-      </div>
-      <!-- Repetir para loop infinito -->
-      <div class="festival-item">
-        <img src="./img/festivales/05.png" alt="Festival 1" loading="lazy">
-        <div class="festival-label">Between Frames<br><span>Official Selection</span></div>
-      </div>
-      <div class="festival-item">
-        <img src="./img/festivales/01.png" alt="Festival 2" loading="lazy">
-        <div class="festival-label">Black & Brown<br><span>Official Selection</span></div>
-      </div>
+  <h2 class="sec-title">Proyectos en <span>festivales internacionales</span></h2>
+  <p class="ticker-label">Festivales internacionales</p>
+  <div class="ticker-wrap">
+    <div class="ticker-inner">
+      <!-- FESTIVAL 1 -->
+      <div class="t-slot"><img src="./img/festivales/00.png" alt="Shorts México" loading="lazy"></div>
+      <!-- FESTIVAL 2 -->
+      <div class="t-slot"><img src="./img/festivales/09.png" alt="Pixelatl" loading="lazy"></div>
+      <!-- FESTIVAL 3 -->
+      <div class="t-slot"><img src="./img/festivales/08.png" alt="New York Short Animation Festival" loading="lazy"></div>
+      <!-- FESTIVAL 4 -->
+      <div class="t-slot"><img src="./img/festivales/02.png" alt="Filmmakers session" loading="lazy"></div>
+      <!-- FESTIVAL 5 -->
+      <div class="t-slot"><img src="./img/festivales/03.png" alt="Urbanite" loading="lazy"></div>
+      <!-- FESTIVAL 6 -->
+      <div class="t-slot"><img src="./img/festivales/04.png" alt="IHSS" loading="lazy"></div>
+      <!-- FESTIVAL 7 -->
+      <div class="t-slot"><img src="./img/festivales/05.png" alt="Between Frames" loading="lazy"></div>
+      <!-- FESTIVAL 8 -->
+      <div class="t-slot"><img src="./img/festivales/01.png" alt="Black & Brown" loading="lazy"></div>
+      <!-- REPETIR PARA LOOP INFINITO -->
+      <div class="t-slot"><img src="./img/festivales/00.png" alt="Shorts México" loading="lazy"></div>
+      <div class="t-slot"><img src="./img/festivales/09.png" alt="Pixelatl" loading="lazy"></div>
+      <div class="t-slot"><img src="./img/festivales/08.png" alt="New York Short Animation Festival" loading="lazy"></div>
+      <div class="t-slot"><img src="./img/festivales/02.png" alt="Filmmakers session" loading="lazy"></div>
+      <div class="t-slot"><img src="./img/festivales/03.png" alt="Urbanite" loading="lazy"></div>
+      <div class="t-slot"><img src="./img/festivales/04.png" alt="IHSS" loading="lazy"></div>
+      <div class="t-slot"><img src="./img/festivales/05.png" alt="Between Frames" loading="lazy"></div>
+      <div class="t-slot"><img src="./img/festivales/01.png" alt="Black & Brown" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -749,7 +755,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   <h2 class="sec-title">Lo que dicen <span>nuestros estudiantes</span></h2>
   <div class="test-grid">
     <div class="test-card">
-      <div class="test-quote">Al estudiar LAED, nunca he dejado de mejorar como artista y persona. Año con año, mis habilidades de colaboración y trabajo en equipo continúan desarrollándose.</div>
+      <div class="test-quote">Al estudiar LADV, nunca he dejado de mejorar como artista y persona. Año con año, mis habilidades de colaboración y trabajo en equipo continúan desarrollándose.</div>
       <div class="test-author">Regina Garza · Estudiante</div>
     </div>
     <div class="test-card">
@@ -887,6 +893,30 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
       <div class="gal-overlay">
         <div class="gal-name">Ana Valeria Cantú</div>
         <div class="gal-tech">Modelado de personajes</div>
+      </div>
+    </div>
+    <!-- IMAGEN 13: Modelado de personajes -->
+    <div class="gal-item" data-filter="motion" onclick="openGalModal(this)">
+      <img src="./img/galeria/trabajo-13.png" alt="Trabajo de alumno 13" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-name">Abigail Moreno</div>
+        <div class="gal-tech">Modelado de personajes</div>
+      </div>
+    </div>
+    <!-- IMAGEN 14: Modelado de escenarios -->
+    <div class="gal-item" data-filter="gameArt" onclick="openGalModal(this)">
+      <img src="./img/galeria/trabajo-14.png" alt="Trabajo de alumno 14" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-name">Echoes of the tree</div>
+        <div class="gal-tech">Modelado de escenarios</div>
+      </div>
+    </div>
+    <!-- IMAGEN 15: Game Art -->
+    <div class="gal-item" data-filter="concept" onclick="openGalModal(this)">
+      <img src="./img/galeria/trabajo-15.png" alt="Trabajo de alumno 15" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-name">Pepe Pincho</div>
+        <div class="gal-tech">Game Art</div>
       </div>
     </div>
   </div>
