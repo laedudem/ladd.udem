@@ -93,11 +93,16 @@ h1.htitle span{color:var(--accent)}
 /* ── CAMPO DE TRABAJO ────────────────────── */
 #campo{background:var(--dark)}
 .campo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
-.campo-card{background:var(--card);padding:28px 22px;border-left:3px solid transparent;transition:all .25s}
+.campo-card{position:relative;overflow:hidden;background:var(--card);aspect-ratio:3/4;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;border-left:3px solid transparent;transition:all .25s}
 .campo-card:hover{border-left-color:var(--accent);background:#202020}
+.campo-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;transition:transform .4s ease}
+.campo-card:hover .campo-video{transform:scale(1.05)}
+.campo-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(13,13,13,.92) 0%,rgba(13,13,13,.6) 45%,rgba(13,13,13,.2) 100%);transition:background .3s ease}
+.campo-card:hover .campo-overlay{background:linear-gradient(0deg,rgba(13,13,13,.95) 0%,rgba(13,13,13,.7) 50%,rgba(13,13,13,.3) 100%)}
+.campo-content{position:relative;z-index:2;padding:28px 22px}
 .campo-icon{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--faint);margin-bottom:10px}
-.campo-title{font-size:20px;font-weight:700;color:var(--white);margin-bottom:8px}
-.campo-items{font-size:14.5px;color:var(--muted);line-height:1.7}
+.campo-title{font-size:20px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.campo-items{font-size:14.5px;color:var(--white);opacity:.8;line-height:1.7}
 
 /* ── HERRAMIENTAS ────────────────────────── */
 #tools{background:var(--mid);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding:96px 72px}
@@ -339,6 +344,30 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   max-height:70px !important;
   object-fit:contain !important;
 }
+
+/* ── CAMPO PROFESIONAL · ajuste móvil (solo .campo-*) ── */
+@media(max-width:480px){
+  .campo-grid{grid-template-columns:1fr}
+  .campo-card{aspect-ratio:4/5;min-height:380px}
+  .campo-content{padding:24px 18px}
+}
+
+/* ── ESQUINAS REDONDEADAS (radio consistente en todo el sitio) ──
+   Cambia estos dos valores para ajustar el redondeo globalmente:
+   --radius    → tarjetas, paneles, imágenes y contenedores
+   --radius-sm → botones, badges, filtros y elementos pequeños      */
+:root{--radius:16px;--radius-sm:10px}
+
+/* Tarjetas y paneles */
+.tray-card,.diff-card,.campo-card,.tool-row,.infra-item,.intl-card,
+.egr-card,.test-card,.comp-item,.faq-item,.gal-item,.perfil-block,
+#tools > div:nth-child(2){border-radius:var(--radius)}
+
+/* Imágenes / media dentro de modales */
+.gal-modal img{border-radius:var(--radius)}
+
+/* Botones, badges, filtros y elementos pequeños */
+.nav-cta,.btn-y,.btn-g,.badge,.gal-filter,.egr-photo,.egr-init{border-radius:var(--radius-sm)}
 </style>
 </head>
 <body>
@@ -605,45 +634,92 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   <div class="sec-eye">¿En qué puedo trabajar?</div>
   <h2 class="sec-title">Campo <span>profesional</span></h2>
   <div class="campo-grid">
+    <!-- ═══════════════════════════════════════════════════════════════
+         VIDEOS DE CAMPO PROFESIONAL
+         Para cambiar el video de cada tarjeta, edita el atributo src del
+         <source> marcado con "◀ CAMBIA AQUÍ LA RUTA DEL VIDEO".
+         Formato recomendado: MP4 (H.264), vertical 3:4 o 4:5, sin audio,
+         máx. ~2MB por video.
+         ═══════════════════════════════════════════════════════════════ -->
     <div class="campo-card">
-      <div class="campo-icon">🖌️</div>
-      <div class="campo-title">Animación 2D</div>
-      <div class="campo-items">Animación de personajes · Storyboard · Visual Development · Diseño de personajes y escenarios · Ilustración · Dirección de arte</div>
+      <video class="campo-video" autoplay muted loop playsinline preload="metadata">
+        <source src="./videos/campo-animacion-2d.mp4" type="video/mp4"> <!-- ◀ CAMBIA AQUÍ LA RUTA DEL VIDEO (Animación 2D) -->
+      </video>
+      <div class="campo-overlay"></div>
+      <div class="campo-content">
+        <div class="campo-title">Animación 2D</div>
+        <div class="campo-items">Animación de personajes · Storyboard · Visual Development · Diseño de personajes y escenarios · Ilustración · Dirección de arte</div>
+      </div>
     </div>
     <div class="campo-card">
-      <div class="campo-icon">🧌</div>
-      <div class="campo-title">Animación 3D & VFX</div>
-      <div class="campo-items">Modelado · Texturizado · Rigging · Animación · Iluminación · Render · Efectos visuales</div>
+      <video class="campo-video" autoplay muted loop playsinline preload="metadata">
+        <source src="./videos/campo-animacion-3d-vfx.mp4" type="video/mp4"> <!-- ◀ CAMBIA AQUÍ LA RUTA DEL VIDEO (Animación 3D & VFX) -->
+      </video>
+      <div class="campo-overlay"></div>
+      <div class="campo-content">
+        <div class="campo-title">Animación 3D & VFX</div>
+        <div class="campo-items">Modelado · Texturizado · Rigging · Animación · Iluminación · Render · Efectos visuales</div>
+      </div>
     </div>
     <div class="campo-card">
-      <div class="campo-icon">🎮</div>
-      <div class="campo-title">Videojuegos</div>
-      <div class="campo-items">Game design · Diseño de niveles · Mecánicas · Game art · Assets · Motores de tiempo real</div>
+      <video class="campo-video" autoplay muted loop playsinline preload="metadata">
+        <source src="./videos/campo-videojuegos.mp4" type="video/mp4"> <!-- ◀ CAMBIA AQUÍ LA RUTA DEL VIDEO (Videojuegos) -->
+      </video>
+      <div class="campo-overlay"></div>
+      <div class="campo-content">
+        <div class="campo-title">Videojuegos</div>
+        <div class="campo-items">Game design · Diseño de niveles · Mecánicas · Game art · Assets · Motores de tiempo real</div>
+      </div>
     </div>
     <div class="campo-card">
-      <div class="campo-icon">🎬</div>
-      <div class="campo-title">Cinematics & Tiempo Real</div>
-      <div class="campo-items">Cortometrajes · Secuencias cinematográficas · Experiencias interactivas · Contenido audiovisual</div>
+      <video class="campo-video" autoplay muted loop playsinline preload="metadata">
+        <source src="./videos/campo-cinematics.mp4" type="video/mp4"> <!-- ◀ CAMBIA AQUÍ LA RUTA DEL VIDEO (Cinematics & Tiempo Real) -->
+      </video>
+      <div class="campo-overlay"></div>
+      <div class="campo-content">
+        <div class="campo-title">Cinematics & Tiempo Real</div>
+        <div class="campo-items">Cortometrajes · Secuencias cinematográficas · Experiencias interactivas · Contenido audiovisual</div>
+      </div>
     </div>
     <div class="campo-card">
-      <div class="campo-icon">💥</div>
-      <div class="campo-title">Efectos & Simulación</div>
-      <div class="campo-items">Cabello · Prendas · Partículas · Destrucción · Efectos digitales avanzados</div>
+      <video class="campo-video" autoplay muted loop playsinline preload="metadata">
+        <source src="./videos/campo-efectos-simulacion.mp4" type="video/mp4"> <!-- ◀ CAMBIA AQUÍ LA RUTA DEL VIDEO (Efectos & Simulación) -->
+      </video>
+      <div class="campo-overlay"></div>
+      <div class="campo-content">
+        <div class="campo-title">Efectos & Simulación</div>
+        <div class="campo-items">Cabello · Prendas · Partículas · Destrucción · Efectos digitales avanzados</div>
+      </div>
     </div>
     <div class="campo-card">
-      <div class="campo-icon">🔗</div>
-      <div class="campo-title">Tecnología & Pipelines</div>
-      <div class="campo-items">Desarrollo de herramientas · Automatización · Optimización de procesos · TD (Technical Director)</div>
+      <video class="campo-video" autoplay muted loop playsinline preload="metadata">
+        <source src="./videos/campo-tecnologia-pipelines.mp4" type="video/mp4"> <!-- ◀ CAMBIA AQUÍ LA RUTA DEL VIDEO (Tecnología & Pipelines) -->
+      </video>
+      <div class="campo-overlay"></div>
+      <div class="campo-content">
+        <div class="campo-title">Tecnología & Pipelines</div>
+        <div class="campo-items">Desarrollo de herramientas · Automatización · Optimización de procesos · TD (Technical Director)</div>
+      </div>
     </div>
     <div class="campo-card">
-      <div class="campo-icon">🎨</div>
-      <div class="campo-title">Dirección Creativa</div>
-      <div class="campo-items">Conceptualización · Dirección de arte · Desarrollo de proyectos · Coordinación de equipos</div>
+      <video class="campo-video" autoplay muted loop playsinline preload="metadata">
+        <source src="./videos/campo-direccion-creativa.mp4" type="video/mp4"> <!-- ◀ CAMBIA AQUÍ LA RUTA DEL VIDEO (Dirección Creativa) -->
+      </video>
+      <div class="campo-overlay"></div>
+      <div class="campo-content">
+        <div class="campo-title">Dirección Creativa</div>
+        <div class="campo-items">Conceptualización · Dirección de arte · Desarrollo de proyectos · Coordinación de equipos</div>
+      </div>
     </div>
     <div class="campo-card">
-      <div class="campo-icon">🚀</div>
-      <div class="campo-title">Emprendimiento</div>
-      <div class="campo-items">Proyectos independientes · Estudios propios · Contenido digital · Experiencias interactivas</div>
+      <video class="campo-video" autoplay muted loop playsinline preload="metadata">
+        <source src="./videos/campo-emprendimiento.mp4" type="video/mp4"> <!-- ◀ CAMBIA AQUÍ LA RUTA DEL VIDEO (Emprendimiento) -->
+      </video>
+      <div class="campo-overlay"></div>
+      <div class="campo-content">
+        <div class="campo-title">Emprendimiento</div>
+        <div class="campo-items">Proyectos independientes · Estudios propios · Contenido digital · Experiencias interactivas</div>
+      </div>
     </div>
   </div>
 </section>
