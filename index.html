@@ -83,7 +83,7 @@ h1.htitle span{color:var(--accent)}
 
 /* ── DIFERENCIADORES ─────────────────────── */
 #diffs{background:var(--mid)}
-.diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
 .diff-card{background:var(--card);padding:28px 24px;border-top:2px solid transparent;transition:border-color .25s,background .25s}
 .diff-card:hover{border-top-color:var(--accent);background:#202020}
 .diff-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--faint);line-height:1;margin-bottom:12px}
@@ -92,7 +92,7 @@ h1.htitle span{color:var(--accent)}
 
 /* ── CAMPO DE TRABAJO ────────────────────── */
 #campo{background:var(--dark)}
-.campo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.campo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
 .campo-card{position:relative;overflow:hidden;background:var(--card);aspect-ratio:3/4;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;border-left:3px solid transparent;transition:all .25s}
 .campo-card:hover{border-left-color:var(--accent);background:#202020}
 .campo-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;transition:transform .4s ease}
@@ -106,14 +106,14 @@ h1.htitle span{color:var(--accent)}
 
 /* ── HERRAMIENTAS ────────────────────────── */
 #tools{background:var(--mid);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding:96px 72px}
-.tool-list{display:flex;flex-direction:column;gap:2px}
+.tool-list{display:flex;flex-direction:column;gap:var(--gap)}
 .tool-row{display:flex;align-items:center;gap:18px;padding:16px 20px;background:var(--card);border-left:3px solid var(--rule);transition:all .2s}
 .tool-row:hover{border-left-color:var(--accent);background:#202020}
 .tool-icon-box{width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .tool-icon-box img{width:34px;height:34px;object-fit:contain;loading:lazy}
 .tool-name{font-size:15px;font-weight:700;color:var(--white)}
 .tool-desc{font-size:13.5px;color:var(--muted);margin-top:2px}
-.infra-grid{display:flex;flex-direction:column;gap:2px}
+.infra-grid{display:flex;flex-direction:column;gap:var(--gap)}
 .infra-item{display:flex;align-items:center;gap:14px;padding:14px 20px;background:var(--card);border-left:3px solid var(--rule);font-size:16.5px;color:var(--muted);transition:all .2s}
 .infra-item:hover{border-left-color:var(--accent);color:var(--white);background:#202020}
 .infra-item::before{content:'→';color:var(--accent);font-family:'DM Mono',monospace;font-size:15px;flex-shrink:0}
@@ -123,7 +123,7 @@ h1.htitle span{color:var(--accent)}
 
 /* ── INTERNACIONALIZACIÓN ────────────────── */
 #internacional{background:var(--dark)}
-.intl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.intl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
 .intl-card{background:var(--card);padding:32px 28px;border-bottom:3px solid transparent;transition:all .25s}
 .intl-card:hover{border-bottom-color:var(--accent);background:#202020}
 .intl-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
@@ -132,7 +132,7 @@ h1.htitle span{color:var(--accent)}
 
 /* ── EGRESADOS ───────────────────────────── */
 #egresados{background:var(--mid)}
-.egr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px}
+.egr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-bottom:2px}
 .egr-card{background:var(--card);overflow:hidden;border-top:2px solid transparent;transition:all .25s;display:flex;flex-direction:column;height:100%}
 .egr-card:hover{border-top-color:var(--accent);background:#202020}
 .egr-project-img{width:100%;aspect-ratio:16/6;background:var(--faint);overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -149,7 +149,7 @@ h1.htitle span{color:var(--accent)}
 
 /* ── TESTIMONIOS ─────────────────────────── */
 #testimonios{background:var(--dark)}
-.test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap)}
 .test-card{background:var(--card);padding:36px;border-left:3px solid var(--faint);transition:border-color .3s,background .3s}
 .test-card:hover{border-left-color:var(--accent);background:#202020}
 
@@ -162,7 +162,7 @@ h1.htitle span{color:var(--accent)}
 
 /* ── COMPETENCIAS ────────────────────────── */
 #competencias{background:var(--mid)}
-.comp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.comp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gap)}
 .comp-item{background:var(--card);padding:20px 16px;text-align:center;transition:background .2s}
 .comp-item:hover{background:#202020}
 .comp-icon{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--accent);margin-bottom:8px}
@@ -170,7 +170,7 @@ h1.htitle span{color:var(--accent)}
 
 /* ── FAQ ──────────────────────────────────── */
 #faq{background:var(--dark)}
-.faq-list{display:flex;flex-direction:column;gap:2px}
+.faq-list{display:flex;flex-direction:column;gap:var(--gap)}
 .faq-item{background:var(--card);border-left:3px solid var(--faint);overflow:hidden;transition:border-color .25s}
 .faq-item.open{border-left-color:var(--accent)}
 .faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;user-select:none}
@@ -182,7 +182,7 @@ h1.htitle span{color:var(--accent)}
 .faq-a-inner{padding:0 24px 20px;font-size:13.5px;color:var(--muted);line-height:1.7;border-top:1px solid var(--rule)}
 
 /* ── PERFILES (ingreso/egreso) ────────────── */
-#perfiles{background:var(--mid);display:grid;grid-template-columns:1fr 1fr;gap:2px}
+#perfiles{background:var(--mid);display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
 .perfil-block{padding:72px 56px}
 .perfil-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
 .perfil-title{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--white);margin-bottom:24px;letter-spacing:.04em;line-height:1}
@@ -233,7 +233,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
 .gal-filter{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--faint);color:var(--muted);background:transparent;cursor:pointer;transition:all .25s}
 .gal-filter.active{border-color:var(--accent);color:var(--accent);background:rgba(255,224,51,.08)}
 .gal-filter:hover{border-color:var(--accent);color:var(--accent)}
-.gal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap)}
 .gal-item{aspect-ratio:1;background:var(--card);overflow:hidden;cursor:pointer;position:relative;group}
 .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
 .gal-item:hover img{transform:scale(1.05)}
@@ -308,7 +308,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   .egr-photo{width:85px;height:85px}
   .egr-bottom{padding:14px;gap:12px}
   .egr-info{font-size:12px}
-  .gal-grid{grid-template-columns:repeat(2,1fr);gap:1px}
+  .gal-grid{grid-template-columns:repeat(2,1fr);gap:var(--gap)}
   .gal-filters{gap:6px;font-size:10px}
   .gal-filter{padding:6px 12px;font-size:9px}
   #stats{grid-template-columns:1fr 1fr}
@@ -344,6 +344,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   max-height:70px !important;
   object-fit:contain !important;
 }
+}
 
 /* ── CAMPO PROFESIONAL · ajuste móvil (solo .campo-*) ── */
 @media(max-width:480px){
@@ -353,10 +354,13 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
 }
 
 /* ── ESQUINAS REDONDEADAS (radio consistente en todo el sitio) ──
-   Cambia estos dos valores para ajustar el redondeo globalmente:
+   Cambia estos valores para ajustar el estilo globalmente:
    --radius    → tarjetas, paneles, imágenes y contenedores
-   --radius-sm → botones, badges, filtros y elementos pequeños      */
-:root{--radius:16px;--radius-sm:10px}
+   --radius-sm → botones, badges, filtros y elementos pequeños
+   --gap       → separación entre tarjetas dentro de una misma grilla
+   Estas reglas están fuera de cualquier @media para que se apliquen
+   igual en desktop, tablet y móvil.                                */
+:root{--radius:9.6px;--radius-sm:6px;--gap:8px}
 
 /* Tarjetas y paneles */
 .tray-card,.diff-card,.campo-card,.tool-row,.infra-item,.intl-card,
@@ -389,8 +393,8 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
 <section id="hero" style="padding:0">
   <video class="hero-grid" autoplay muted loop playsinline preload="metadata">
     <!-- REEMPLAZA "./video.mp4" por la ruta de tu video -->
-    <source src="./Laed Web.webm" type="video/webm">
-    <source src="./Laed Web.mp4" type="video/mp4">
+    <source src="./Laed%20Web.webm" type="video/webm">
+    <source src="./Laed%20Web.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-left">
