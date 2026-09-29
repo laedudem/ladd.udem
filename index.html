@@ -1224,5 +1224,34 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   });
 });
 </script>
+
+<!-- ── REFUERZO DE AUTOPLAY EN MÓVIL (Campo Profesional) ──────────────
+     Algunos navegadores/WebViews móviles cargan el video (se ve el
+     primer frame) pero ignoran el atributo autoplay del HTML, o lo
+     pausan por ahorro de batería / bloqueo de datos. Este script no
+     cambia ningún estilo ni contenido: solo reintenta .play() en cada
+     video de Campo Profesional cuando ya tiene datos suficientes, y
+     de nuevo ante el primer toque del usuario si el navegador lo
+     bloqueó por completo. Si el archivo de video no existe o no está
+     bien codificado para web, esto no puede solucionarlo. ────────── -->
+<script>
+(function(){
+  var videos = document.querySelectorAll('.campo-video');
+  function tryPlay(v){
+    var p = v.play();
+    if (p && typeof p.catch === 'function') p.catch(function(){});
+  }
+  videos.forEach(function(v){
+    if (v.readyState >= 2) tryPlay(v);
+    v.addEventListener('loadeddata', function(){ tryPlay(v); });
+    v.addEventListener('canplay', function(){ tryPlay(v); });
+  });
+  ['touchstart','click'].forEach(function(evt){
+    document.addEventListener(evt, function retry(){
+      videos.forEach(function(v){ if (v.paused) tryPlay(v); });
+    }, { once: true, passive: true });
+  });
+})();
+</script>
 </body>
 </html>
