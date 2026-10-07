@@ -93,7 +93,7 @@ h1.htitle span{color:var(--accent)}
 /* ── CAMPO DE TRABAJO ────────────────────── */
 #campo{background:var(--dark)}
 .campo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
-.campo-card{position:relative;overflow:hidden;background:var(--card);aspect-ratio:3/4;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;border-left:3px solid transparent;transition:all .25s}
+.campo-card{position:relative;overflow:hidden;background:var(--card);aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:flex-end;border-left:3px solid transparent;transition:all .25s}
 .campo-card:hover{border-left-color:var(--accent);background:#202020}
 .campo-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;transition:transform .4s ease}
 .campo-card:hover .campo-video{transform:scale(1.05)}
@@ -155,6 +155,12 @@ h1.htitle span{color:var(--accent)}
 
 /* ── FESTIVALES ───────────────────────────── */
 #festivales{background:var(--dark)}
+#festivales-grid, #estudios-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:2px}
+.fest-card, .est-card, .prof-card, .conv-card{aspect-ratio:1;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.fest-card img, .est-card img, .prof-card img{max-width:85%;max-height:85%;object-fit:contain;display:block}
+#convenios-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px 16px;align-items:center}
+.conv-card{aspect-ratio:auto;height:auto;min-height:0;width:100%}
+.conv-card img{width:auto;height:auto;max-width:92%;max-height:clamp(48px,6vw,80px);object-fit:contain;display:block}
 #festivales-ticker .t-slot img{max-width:140px;max-height:60px;width:auto;height:auto;object-fit:contain;object-position:center;display:block}
 .test-quote{font-size:16px;color:var(--white);line-height:1.7;margin-bottom:20px;font-style:italic}
 .test-quote::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--accent);line-height:1;display:block;margin-bottom:8px}
@@ -265,6 +271,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   .btns{justify-content:center;gap:10px}
   h1.htitle{font-size:clamp(40px,8vw,64px)}
   section{padding:56px 24px}
+  #festivales, #estudios-section, #convenios{padding-top:40px;padding-bottom:40px}
   #tools{grid-template-columns:1fr;gap:36px;padding:56px 24px}
   #perfiles{grid-template-columns:1fr}
   .perfil-block{padding:44px 24px}
@@ -279,6 +286,8 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   .test-grid{grid-template-columns:1fr}
   .festival-item{min-width:140px;gap:10px}
   .comp-grid{grid-template-columns:repeat(3,1fr)}
+  #festivales-grid, #estudios-grid{grid-template-columns:repeat(4,1fr)}
+  #convenios-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px}
   .footer-sections{grid-template-columns:repeat(3,1fr);gap:24px;padding:36px 24px}
   .footer-center{padding:32px 24px;gap:20px;flex-wrap:wrap}
   .footer-bottom{padding:20px 24px;flex-direction:column;text-align:center}
@@ -319,6 +328,9 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   .footer-center{padding:24px 16px;gap:12px}
   .footer-logo{height:45px}
   .footer-bottom{padding:16px;font-size:11px}
+  #festivales-grid, #estudios-grid{grid-template-columns:repeat(3,1fr)}
+  #convenios-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 10px}
+  #festivales, #estudios-section, #convenios{padding-top:32px;padding-bottom:32px}
 
   #festivales-ticker,
 #festivales-ticker .t-slot,
@@ -349,7 +361,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
 /* ── CAMPO PROFESIONAL · ajuste móvil (solo .campo-*) ── */
 @media(max-width:480px){
   .campo-grid{grid-template-columns:1fr}
-  .campo-card{aspect-ratio:4/5;min-height:380px}
+  .campo-card{aspect-ratio:4/5}
   .campo-content{padding:24px 18px}
 }
 
@@ -466,65 +478,85 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
 <!-- FESTIVALES Y LAURELES -->
 <section id="festivales">
   <div class="sec-eye">Reconocimiento global</div>
-  <h2 class="sec-title">Proyectos en <span>festivales internacionales</span></h2>
-  <p class="ticker-label">Festivales internacionales</p>
-  <div class="ticker-wrap">
-    <div class="ticker-inner">
-      <!-- FESTIVAL 1 -->
-      <div class="t-slot"><img src="./img/festivales/00.png" alt="Shorts México" loading="lazy"></div>
-      <!-- FESTIVAL 2 -->
-      <div class="t-slot"><img src="./img/festivales/09.png" alt="Pixelatl" loading="lazy"></div>
-      <!-- FESTIVAL 3 -->
-      <div class="t-slot"><img src="./img/festivales/08.png" alt="New York Short Animation Festival" loading="lazy"></div>
-      <!-- FESTIVAL 4 -->
-      <div class="t-slot"><img src="./img/festivales/02.png" alt="Filmmakers session" loading="lazy"></div>
-      <!-- FESTIVAL 5 -->
-      <div class="t-slot"><img src="./img/festivales/03.png" alt="Urbanite" loading="lazy"></div>
-      <!-- FESTIVAL 6 -->
-      <div class="t-slot"><img src="./img/festivales/04.png" alt="IHSS" loading="lazy"></div>
-      <!-- FESTIVAL 7 -->
-      <div class="t-slot"><img src="./img/festivales/05.png" alt="Between Frames" loading="lazy"></div>
-      <!-- FESTIVAL 8 -->
-      <div class="t-slot"><img src="./img/festivales/01.png" alt="Black & Brown" loading="lazy"></div>
-      <!-- REPETIR PARA LOOP INFINITO -->
-      <div class="t-slot"><img src="./img/festivales/00.png" alt="Shorts México" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/festivales/09.png" alt="Pixelatl" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/festivales/08.png" alt="New York Short Animation Festival" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/festivales/02.png" alt="Filmmakers session" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/festivales/03.png" alt="Urbanite" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/festivales/04.png" alt="IHSS" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/festivales/05.png" alt="Between Frames" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/festivales/01.png" alt="Black & Brown" loading="lazy"></div>
-    </div>
+  <h2 class="sec-title">cortometrajes y proyectos en <span>festivales nacionales e internacionales</span></h2>
+  <div id="festivales-grid">
+    <!-- HILERA 1 -->
+    <div class="fest-card"><img src="./img/festivales/00.png" alt="Festival 1" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/01.png" alt="Festival 2" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/02.png" alt="Festival 3" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/03.png" alt="Festival 4" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/04.png" alt="Festival 5" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/05.png" alt="Festival 6" loading="lazy"></div>
+    <!-- HILERA 2 -->
+    <div class="fest-card"><img src="./img/festivales/06.png" alt="Festival 7" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/07.png" alt="Festival 8" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/08.png" alt="Festival 9" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/09.png" alt="Festival 10" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/10.png" alt="Festival 11" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/11.png" alt="Festival 12" loading="lazy"></div>
+    <!-- HILERA 3 -->
+    <div class="fest-card"><img src="./img/festivales/12.png" alt="Festival 13" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/13.png" alt="Festival 14" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/14.png" alt="Festival 15" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/15.png" alt="Festival 16" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/16.png" alt="Festival 17" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/17.png" alt="Festival 18" loading="lazy"></div>
+    <!-- HILERA 4 -->
+    <div class="fest-card"><img src="./img/festivales/18.png" alt="Festival 18" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/19.png" alt="Festival 19" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/20.png" alt="Festival 20" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/21.png" alt="Festival 21" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/22.png" alt="Festival 22" loading="lazy"></div>
+    <div class="fest-card"><img src="./img/festivales/23.png" alt="Festival 23" loading="lazy"></div>
   </div>
 </section>
 
-<!-- TICKER ESTUDIOS -->
-<div id="estudios-ticker">
-  <p class="ticker-label">Egresados trabajando en estudios como</p>
-  <div class="ticker-wrap">
-    <div class="ticker-inner">
-      <!-- LOGOS: editar rutas según tu carpeta de assets (ej: ./img/, ./assets/, etc) -->
-      <div class="t-slot"><img src="./img/Sony_Pictures_Imageworks_logo.svg.png" alt="Sony Pictures Imageworks" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/ubisoft.png" alt="Ubisoft" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/wd.png" alt="Walt Disney Animation" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/Reel_FX_Animation_Studios_logo.png" alt="Reel FX" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/Marvel_Studios_2016_logo.svg.png" alt="Marvel Studios" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/Logonetflix.png" alt="Netflix" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/logo-DreamWorks-1.png" alt="DreamWorks" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/mpc.png" alt="MPC" loading="lazy"></div>
-      <!-- REPETIR PARA LOOP INFINITO -->
-      <div class="t-slot"><img src="./img/Sony_Pictures_Imageworks_logo.svg.png" alt="Sony Pictures Imageworks" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/ea.png" alt="Electronic arts" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/wd.png" alt="Walt Disney Animation" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/Reel_FX_Animation_Studios_logo.png" alt="Reel FX" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/Marvel_Studios_2016_logo.svg.png" alt="Marvel Studios" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/Logonetflix.png" alt="Netflix" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/logo-DreamWorks-1.png" alt="DreamWorks" loading="lazy"></div>
-      <div class="t-slot"><img src="./img/mpc.png" alt="MPC" loading="lazy"></div>
-    </div>
+<!-- ESTUDIOS DONDE TRABAJAN EGRESADOS -->
+<section id="estudios-section">
+  <div class="sec-eye">Dónde trabajan</div>
+  <h2 class="sec-title">Egresados trabajando en estudios <span>como</span></h2>
+  <div id="estudios-grid">
+    <!-- HILERA 1 -->
+    <div class="est-card"><img src="./img/estudios/00.png" alt="Estudio 1" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/01.png" alt="Estudio 2" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/02.png" alt="Estudio 3" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/03.png" alt="Estudio 4" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/04.png" alt="Estudio 5" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/05.png" alt="Estudio 6" loading="lazy"></div>
+    <!-- HILERA 2 -->
+    <div class="est-card"><img src="./img/estudios/06.png" alt="Estudio 7" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/07.png" alt="Estudio 8" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/08.png" alt="Estudio 9" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/09.png" alt="Estudio 10" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/10.png" alt="Estudio 11" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/11.png" alt="Estudio 12" loading="lazy"></div>
+    <!-- HILERA 3 -->
+    <div class="est-card"><img src="./img/estudios/12.png" alt="Estudio 13" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/13.png" alt="Estudio 14" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/14.png" alt="Estudio 15" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/15.png" alt="Estudio 16" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/16.png" alt="Estudio 17" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/17.png" alt="Estudio 18" loading="lazy"></div>
+    <div class="est-card"><img src="./img/estudios/18.png" alt="Estudio 19" loading="lazy"></div>
   </div>
-</div>
+</section>
+
+<!-- CONVENIOS PRÁCTICAS PROFESIONALES -->
+<section id="convenios">
+  <div class="sec-eye">Formación práctica</div>
+  <h2 class="sec-title">Convenios y <span>prácticas profesionales</span></h2>
+  <div id="convenios-grid">
+    <div class="conv-card"><img src="./img/convenios/01.png" alt="Convenio 1" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/02.png" alt="Convenio 2" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/03.png" alt="Convenio 3" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/04.png" alt="Convenio 4" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/05.png" alt="Convenio 5" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/06.png" alt="Convenio 6" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/07.svg" alt="Convenio 7" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/08.png" alt="Convenio 8" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/09.png" alt="Convenio 9" loading="lazy"></div>
+  </div>
+</section>
 
 <!-- EGRESADOS -->
 <section id="egresados">
@@ -1007,6 +1039,12 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
         <div class="gal-tech">Game Art</div>
       </div>
     </div>
+     <!-- IMAGEN 16: Concept Art -->
+    <div class="gal-item" data-filter="concept" onclick="openGalModal(this)">
+      <img src="./img/galeria/trabajo-16.png" alt="Trabajo de alumno 15" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-name">Proyecto Anima</div>
+        <div class="gal-tech">Concept Art</div>
   </div>
 </section>
 
