@@ -23,7 +23,7 @@
   --dark:#0d0d0d;--mid:#141414;--card:#1c1c1c;--rule:#444444;
   --accent:#FFE033;--white:#F0EDE6;--muted:#7f7f7f;--faint:#474747;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:12}
 html,body{max-width:100%;overflow-x:hidden;scroll-behavior:smooth}
 body{background:var(--dark);color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6}
 
@@ -158,9 +158,9 @@ h1.htitle span{color:var(--accent)}
 #festivales-grid, #estudios-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:2px}
 .fest-card, .est-card, .prof-card, .conv-card{aspect-ratio:1;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .fest-card img, .est-card img, .prof-card img{max-width:85%;max-height:85%;object-fit:contain;display:block}
-#convenios-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px 16px;align-items:center}
-.conv-card{aspect-ratio:auto;height:auto;min-height:0;width:100%}
-.conv-card img{width:auto;height:auto;max-width:92%;max-height:clamp(48px,6vw,80px);object-fit:contain;display:block}
+#convenios-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:60px 20px;align-items:stretch}
+.conv-card{aspect-ratio:auto;height:clamp(64px,7vw,96px);min-height:0;width:100%;padding:8px 0;box-sizing:border-box}
+.conv-card img{width:auto;height:auto;max-width:92%;max-height:100%;object-fit:contain;display:block}
 #festivales-ticker .t-slot img{max-width:140px;max-height:60px;width:auto;height:auto;object-fit:contain;object-position:center;display:block}
 .test-quote{font-size:16px;color:var(--white);line-height:1.7;margin-bottom:20px;font-style:italic}
 .test-quote::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--accent);line-height:1;display:block;margin-bottom:8px}
@@ -198,7 +198,10 @@ h1.htitle span{color:var(--accent)}
 
 /* ── CTA FINAL ────────────────────────────── */
 #cta-final{text-align:center;padding:120px 72px;position:relative;overflow:hidden;background:var(--dark)}
-#cta-final::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:640px;height:640px;background:radial-gradient(circle,rgba(255,224,51,.055) 0%,transparent 70%);pointer-events:none}
+#cta-final::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:640px;height:640px;background:radial-gradient(circle,rgba(255,224,51,.055) 0%,transparent 70%);pointer-events:none;z-index:1}
+#cta-final video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0}
+.cta-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,13,13,.75) 0%,rgba(13,13,13,.4) 100%);z-index:1}
+#cta-final > .cta-title,#cta-final > .cta-sub,#cta-final > .cta-btns,#cta-final > .cta-note{z-index:2}
 .cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,80px);letter-spacing:.04em;color:var(--white);margin-bottom:18px;position:relative}
 .cta-sub{font-size:15px;color:var(--muted);margin-bottom:44px;position:relative}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
@@ -287,7 +290,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   .festival-item{min-width:140px;gap:10px}
   .comp-grid{grid-template-columns:repeat(3,1fr)}
   #festivales-grid, #estudios-grid{grid-template-columns:repeat(4,1fr)}
-  #convenios-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 12px}
+  #convenios-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 12px}
   .footer-sections{grid-template-columns:repeat(3,1fr);gap:24px;padding:36px 24px}
   .footer-center{padding:32px 24px;gap:20px;flex-wrap:wrap}
   .footer-bottom{padding:20px 24px;flex-direction:column;text-align:center}
@@ -296,6 +299,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
 @media(max-width:480px){
   #hero{min-height:auto;padding-top:56px}
   #hero video{object-position:60% center}
+  #cta-final video{object-position:60% center}
   .hero-left{padding:32px 16px;text-align:center}
   .hero-right{padding:32px 16px;gap:12px}
   h1.htitle{font-size:clamp(45px,6vw,40px);line-height:.95}
@@ -467,7 +471,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
     <div class="diff-card"><div class="diff-num">01</div><div class="diff-title">Tres líneas de especialización</div><div class="diff-desc">Animación 2D, Animación 3D o Videojuegos. Eliges tu camino desde el sexto semestre, con una base sólida en todas las disciplinas.</div></div>
     <div class="diff-card"><div class="diff-num">02</div><div class="diff-title">Storytelling como núcleo creativo</div><div class="diff-desc">Narrativa, personajes, mundos y experiencias integrados en cada proceso, sin importar la línea que elijas.</div></div>
     <div class="diff-card"><div class="diff-num">03</div><div class="diff-title">Unreal Engine en producción real</div><div class="diff-desc">Cortometrajes, cinematics, videojuegos y experiencias interactivas con el motor más demandado de la industria. Somos Unreal Academic Partner 2026.</div></div>
-    <div class="diff-card"><div class="diff-num">04</div><div class="diff-title">Profesores de clase mundial</div><div class="diff-desc">Clases de la mano con quienes trabajaron en proyectos para Disney, Marvel Studios, Ubisoft, Paramount, Capcom, Netflix, HBO, DC, Activision,Amazon, entre otros. </div></div>
+    <div class="diff-card"><div class="diff-num">04</div><div class="diff-title">Profesores de clase mundial</div><div class="diff-desc">Clases de la mano con quienes trabajaron en proyectos para Disney, Marvel Studios, Ubisoft, Paramount, Capcom, Netflix, HBO, DC, Activision, Amazon, entre otros. </div></div>
     <div class="diff-card"><div class="diff-num">05</div><div class="diff-title">Simulación avanzada</div><div class="diff-desc">Cabello, prendas, partículas y destrucción mediante Houdini, Maya y Unreal Engine. Tecnologías que usan los estudios globales hoy.</div></div>
     <div class="diff-card"><div class="diff-num">06</div><div class="diff-title">Vinculación internacional real</div><div class="diff-desc">Al menos 4 profesionales invitados por semestre. LightBox Expo, Pixelatl y universidades de EE.UU., Canadá, Europa y Latinoamérica.</div></div>
     <div class="diff-card"><div class="diff-num">07</div><div class="diff-title">Proyectos que llegan a festivales</div><div class="diff-desc">Cortometrajes, videojuegos y cinematics que compiten en concursos y espacios de exhibición internacionales reales.</div></div>
@@ -555,6 +559,9 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
     <div class="conv-card"><img src="./img/convenios/07.svg" alt="Convenio 7" loading="lazy"></div>
     <div class="conv-card"><img src="./img/convenios/08.png" alt="Convenio 8" loading="lazy"></div>
     <div class="conv-card"><img src="./img/convenios/09.png" alt="Convenio 9" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/10.png" alt="Convenio 10" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/11.png" alt="Convenio 11" loading="lazy"></div>
+    <div class="conv-card"><img src="./img/convenios/12.png" alt="Convenio 12" loading="lazy"></div>
   </div>
 </section>
 
@@ -791,12 +798,11 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
     <p style="font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:28px">Espacios diseñados para que produzcas como lo harías en un estudio real.</p>
     <div class="infra-grid">
       <div class="infra-item">Laboratorios de cómputo especializados</div>
-      <div class="infra-item">Motion capture</div>
+      <div class="infra-item">Laboratorio de Motion capture</div>
       <div class="infra-item">Render farm</div>
-      <div class="infra-item">Realidad virtual</div>
-      <div class="infra-item">Green screen</div>
-      <div class="infra-item">Estudios audiovisuales</div>
-      <div class="infra-item">Animación Stop Motion</div>
+      <div class="infra-item">Impresion 3D y escultura</div>
+      <div class="infra-item">Estudios Audiovisuales</div>
+      <div class="infra-item">Laboratorio para Stop Motion</div>
       <div class="infra-item">Dibujo con modelo en vivo</div>
       <div class="infra-item">Estudio de sonido</div>
     </div>
@@ -811,27 +817,27 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
     <div class="intl-card">
       <div class="intl-tag">Viajes académicos</div>
       <div class="intl-title">Visitas a estudios internacionales</div>
-      <div class="intl-desc">Viajes académicos con experiencias directas en la industria de animación y videojuegos fuera de México.</div>
+      <div class="intl-desc">Viajes académicos con experiencias directas en la industria de animación y videojuegos fuera de México en estudios como Walt Disney Animation y Riot Games en L.A.</div>
     </div>
     <div class="intl-card">
       <div class="intl-tag">Intercambios</div>
-      <div class="intl-title">Universidades en EE.UU., Canadá, Europa y LATAM</div>
+      <div class="intl-title">Universidades en España, Canadá, Europa y Asia</div>
       <div class="intl-desc">Intercambios de uno o dos semestres en universidades internacionales con convenio, más veranos de especialidad.</div>
     </div>
     <div class="intl-card">
       <div class="intl-tag">Doble titulación</div>
-      <div class="intl-title">Titulación internacional en VFX, Rigging y Producción</div>
-      <div class="intl-desc">Opciones de doble titulación en Animación 3D de personajes, Composición para VFX, Rigging y Character Effects.</div>
+      <div class="intl-title">Titulación internacional con Doble grado: Licenciatura y Maestría</div>
+      <div class="intl-desc">Opciones de doble titulación en Character Effects "CFX", Animación 3D de personajes, Composición para VFX, Producción para Animación y Videojuegos.</div>
     </div>
     <div class="intl-card">
       <div class="intl-tag">Eventos globales</div>
-      <div class="intl-title">LightBox Expo & Pixelatl</div>
+      <div class="intl-title">LightBox Expo (L.A) & Pixelatl (GDL)</div>
       <div class="intl-desc">Participación en los eventos de referencia de la industria de animación y videojuegos a nivel internacional.</div>
     </div>
     <div class="intl-card">
       <div class="intl-tag">Vinculación</div>
       <div class="intl-title">4+ profesionales invitados por semestre</div>
-      <div class="intl-desc">Conferencias y talleres con referentes internacionales como Nicolás Chacin, Raphael Lacoste y Eduardo Domínguez.</div>
+      <div class="intl-desc">Conferencias y talleres con referentes internacionales como Oscar Trejo(Marvel, Netflix, Nickelodeon), Celia Hodent (Fortnite, Star Wars) y Chris McEntee (Star Wars, Ori, Rayman).</div>
     </div>
     <div class="intl-card">
       <div class="intl-tag">Prácticas</div>
@@ -875,7 +881,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   <h2 class="sec-title">Lo que dicen <span>nuestros estudiantes</span></h2>
   <div class="test-grid">
     <div class="test-card">
-      <div class="test-quote">Al estudiar LADV, nunca he dejado de mejorar como artista y persona. Año con año, mis habilidades de colaboración y trabajo en equipo continúan desarrollándose.</div>
+      <div class="test-quote">Al estudiar Animación Digital y Diseño de Videojuegos, nunca he dejado de mejorar como artista y persona. Año con año, mis habilidades de colaboración y trabajo en equipo continúan desarrollándose.</div>
       <div class="test-author">Regina Garza · Estudiante</div>
     </div>
     <div class="test-card">
@@ -887,7 +893,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
       <div class="test-author">Lesly Gómez · Estudiante</div>
     </div>
     <div class="test-card">
-      <div class="test-quote">Dentro de LADV logré desarrollar habilidades tecnológicas y comunicativas que actualmente me están ayudando a crecer como profesionista.</div>
+      <div class="test-quote">Dentro de la carrera logré desarrollar habilidades tecnológicas y comunicativas que actualmente me están ayudando a crecer como profesionista.</div>
       <div class="test-author">Ignacio Fernández · Egresado</div>
     </div>
   </div>
@@ -1157,10 +1163,16 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
 
 <!-- CTA FINAL -->
 <section id="cta-final">
+  <video class="cta-video" autoplay muted loop playsinline preload="auto">
+    <!-- REEMPLAZA "./videos/cta-final.mp4" por la ruta de tu video -->
+    <source src="./videos/cta-final.mp4" type="video/mp4">
+    <source src="./videos/cta-final.webm" type="video/webm">
+  </video>
+  <div class="cta-overlay"></div>
   <h2 class="cta-title">Tu historia<br><span style="color:var(--accent)">empieza aquí.</span></h2>
   <p class="cta-sub">Animación Digital y Diseño de Videojuegos · Universidad de Monterrey<br>Monterrey, México · Siguiente generación 2027</p>
   <div class="cta-btns">
-    <a href="https://www.udem.edu.mx/es/carreras/animacion-digital-diseno-videojuegos" target="_blank" class="btn-y" style="font-size:12px;padding:15px 36px">Solicitar información</a>
+    <a href="https://crgs.udem.edu.mx/arte-arquitectura-y-diseno/academia/profesional/licenciatura-en-animacion-y-efectos-digitales" target="_blank" class="btn-y" style="font-size:12px;padding:15px 36px">Solicitar información</a>
     <a href="mailto:christian.mendez@udem.edu" class="btn-g" style="font-size:12px;padding:15px 36px">Contactar al director</a>
   </div>
   <p class="cta-note">Mto. Christian Javier Méndez Aguilar · Director del Programa</p>
