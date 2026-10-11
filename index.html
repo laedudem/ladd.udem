@@ -45,15 +45,15 @@ h2.sec-title span{color:var(--accent)}
 .eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
 
 /* ── HERO ────────────────────────────────── */
-#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;position:relative;overflow:hidden;background:var(--dark)}
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;align-content:center;padding-top:64px;position:relative;overflow:hidden;background:var(--dark)}
 #hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,13,13,.75) 0%,rgba(13,13,13,.4) 100%);z-index:1}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:96px 60px 80px 72px;position:relative;z-index:2}
-.hero-right{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:96px 72px 80px 32px;gap:20px}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:96px 60px 40px 72px;position:relative;z-index:2}
+.hero-right{position:relative;z-index:2;grid-column:1 / -1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 72px 80px 72px;gap:20px}
 h1.htitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(54px,6vw,88px);line-height:.9;letter-spacing:.02em;color:var(--white);margin-bottom:28px}
 h1.htitle span{color:var(--accent)}
-.hero-sub{font-size:16px;color:var(--white);line-height:1.75;max-width:420px;margin-bottom:36px}
-.hero-tagline{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:36px;font-style:italic}
+.hero-sub{font-size:16px;color:var(--white);line-height:1.75;max-width:420px;margin-bottom:36px;text-align:left}
+.hero-tagline{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:36px;font-style:italic;text-align:left}
 .badges{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:44px}
 .badge{font-family:'DM Mono',monospace;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border:1px solid var(--faint);color:var(--white)}
 .badge.on{border-color:var(--accent);color:var(--accent);background:rgba(255,224,51,.06)}
@@ -66,13 +66,16 @@ h1.htitle span{color:var(--accent)}
 .btn-g:hover{border-color:var(--accent);color:var(--accent)}
 
 /* ── TRAYECTORIAS CARDS (hero right) ─────── */
-.tray-cards{display:flex;flex-direction:column;gap:10px;width:100%}
+.tray-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}
+.tray-cards > p{grid-column:1 / -1}
 .tray-card{background:rgba(32,32,32,0.60);border-left:4px solid var(--faint);padding:20px 24px;transition:border-color .3s,background .3s;cursor:default}
 .tray-card:hover{border-left-color:var(--accent);background:rgba(32,32,32,0.82)}
 .tray-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--faint);line-height:1;margin-bottom:6px;transition:color .3s}
 .tray-card:hover .tray-num{color:var(--accent)}
 .tray-name{font-size:20px;font-weight:700;color:var(--accent);margin-bottom:4px}
 .tray-desc{font-size:15.5px;color:var(--white);line-height:1.55}
+@media(max-width:960px){.tray-card{padding:18px 18px}.tray-desc{font-size:14px}}
+@media(max-width:640px){.tray-cards{grid-template-columns:1fr}}
 
 /* ── STATS ───────────────────────────────── */
 #stats{background:var(--accent);display:grid;grid-template-columns:repeat(4,1fr)}
@@ -110,7 +113,7 @@ h1.htitle span{color:var(--accent)}
 .tool-row{display:flex;align-items:center;gap:18px;padding:16px 20px;background:var(--card);border-left:3px solid var(--rule);transition:all .2s}
 .tool-row:hover{border-left-color:var(--accent);background:#202020}
 .tool-icon-box{width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.tool-icon-box img{width:34px;height:34px;object-fit:contain;loading:lazy}
+.tool-icon-box img{width:50px;height:50px;object-fit:contain;loading:lazy}
 .tool-name{font-size:15px;font-weight:700;color:var(--white)}
 .tool-desc{font-size:13.5px;color:var(--muted);margin-top:2px}
 .infra-grid{display:flex;flex-direction:column;gap:var(--gap)}
@@ -176,7 +179,8 @@ h1.htitle span{color:var(--accent)}
 
 /* ── FAQ ──────────────────────────────────── */
 #faq{background:var(--dark)}
-.faq-list{display:flex;flex-direction:column;gap:var(--gap)}
+.faq-list{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap);align-items:start}
+@media(max-width:960px){.faq-list{grid-template-columns:1fr}}
 .faq-item{background:var(--card);border-left:3px solid var(--faint);overflow:hidden;transition:border-color .25s}
 .faq-item.open{border-left-color:var(--accent)}
 .faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;user-select:none}
@@ -268,6 +272,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   #hero{grid-template-columns:1fr;padding-top:56px;min-height:auto}
   #hero video{width:100%;height:100%;object-fit:cover;object-position:center center}
   .hero-left{padding:64px 24px 32px;text-align:center}
+  .hero-sub{max-width:560px;font-size:15px}
   .hero-right{padding:0 24px 56px;flex-direction:column}
   .hero-badge-epic{justify-content:center}
   .badges{justify-content:center}
@@ -301,7 +306,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
   #hero video{object-position:60% center}
   #cta-final video{object-position:60% center}
   .hero-left{padding:32px 16px;text-align:center}
-  .hero-right{padding:32px 16px;gap:12px}
+  .hero-right{padding:0 16px 32px;gap:12px}
   h1.htitle{font-size:clamp(45px,6vw,40px);line-height:.95}
   .hero-badge-epic{margin-top:16px;margin-bottom:20px}
   .badge-epic{height:100px;max-width:160px}
@@ -376,7 +381,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
    --gap       → separación entre tarjetas dentro de una misma grilla
    Estas reglas están fuera de cualquier @media para que se apliquen
    igual en desktop, tablet y móvil.                                */
-:root{--radius:9.6px;--radius-sm:6px;--gap:8px}
+:root{--radius:3px;--radius-sm:3px;--gap:8px}
 
 /* Tarjetas y paneles */
 .tray-card,.diff-card,.campo-card,.tool-row,.infra-item,.intl-card,
@@ -445,32 +450,20 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
     </div>
     <p class="hero-tagline">Transforma ideas en historias y experiencias que conectan con las personas.</p>
     <p class="hero-sub">Crea personajes, mundos y experiencias reales a través del arte, el storytelling y la tecnología. Forma parte de la industria global de la animación, los videojuegos y el entretenimiento.</p>
-    <div class="badges">
-      <span class="badge">Monterrey, MX</span>
-      <span class="badge">3 Líneas terminales</span>
-      <span class="badge">Industria global</span>
-    </div>
-    <div class="btns">
-      <a href="#cta-final" class="btn-y">Quiero inscribirme</a>
-      <a href="#trayectorias" class="btn-g">Conoce la carrera</a>
-    </div>
   </div>
   <div class="hero-right">
     <div class="eyebrow" style="margin-bottom:16px">Elige tu trayectoria</div>
     <div class="tray-cards" id="trayectorias">
       <div class="tray-card">
-        <div class="tray-num">01</div>
-        <div class="tray-name">Animación 2D</div>
+        <div class="tray-num">Animación 2D</div>
         <div class="tray-desc">Visual Development, diseño de personajes y escenarios, storyboard, producción de cortometrajes y narrativa visual.</div>
       </div>
       <div class="tray-card">
-        <div class="tray-num">02</div>
-        <div class="tray-name">Animación 3D</div>
+        <div class="tray-num">Animación 3D</div>
         <div class="tray-desc">Modelado, texturizado, rigging, animación, iluminación, composición, efectos y simulación para cine y VFX.</div>
       </div>
       <div class="tray-card">
-        <div class="tray-num">03</div>
-        <div class="tray-name">Videojuegos</div>
+        <div class="tray-num">Videojuegos</div>
         <div class="tray-desc">Game design, narrativa, mecánicas, game art, experiencias interactivas y desarrollo en motores de tiempo real.</div>
       </div>
       <p style="font-family:'DM Mono',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--white);margin-top:8px">Eliges tu línea a partir del 6.° semestre</p>
@@ -488,7 +481,7 @@ footer{background:var(--mid);border-top:1px solid var(--rule);display:flex;flex-
 
 <!-- DIFERENCIADORES -->
 <section id="diffs">
-  <div class="sec-eye">Por qué elegir LADV</div>
+  <div class="sec-eye">Por qué elegir en UDEM</div>
   <h2 class="sec-title">8 razones para <span>elegir esta carrera</span></h2>
   <div class="diff-grid">
     <div class="diff-card"><div class="diff-num">01</div><div class="diff-title">Tres líneas de especialización</div><div class="diff-desc">Animación 2D, Animación 3D o Videojuegos. Eliges tu camino desde el sexto semestre, con una base sólida en todas las disciplinas.</div></div>
